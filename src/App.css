@@ -3,7 +3,7 @@
 }
 
 .App-logo {
-  height: 40vmin;
+  height: 35vmin;
   pointer-events: none;
 }
 
@@ -13,6 +13,22 @@
   }
 }
 
+.font-link {
+  font-size: calc(10px + 2vmin);
+}
+
+.font-title {
+  font-size: calc(70px + 2vmin);
+  font-weight: bold;
+  margin-top: 3vh;
+  margin-bottom: 0;
+}
+
+.font-subtitle {
+  font-size: calc(15px + 2vmin);
+  font-weight: bold;
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -20,12 +36,63 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
   color: white;
 }
 
 .App-link {
+  font-size: calc(10px + 2vmin);
   color: #61dafb;
+}
+
+.scroll-button {
+  width: 15vh;
+  height: 15vh;
+  margin-top: 5vh;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.scroll-img {
+  width: 9vh;
+  height: 9vh;
+  filter: brightness(0) invert(1);
+}
+
+.App-container {
+  background-color: #ffffff;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+
+.font-1 {
+  font-size: calc(15px + 2vmin);
+  font-weight: bold;
+}
+
+.font-inputtitle {
+  font-size: calc(10px + 2vmin);
+}
+
+.container-input {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.button-emit {
+  height: 5vh;
+  width: 50vh;
+  font-size: calc(10px + 2vmin);
+  background-color: #61dafb;
+  border-color: transparent;
 }
 
 @keyframes App-logo-spin {
