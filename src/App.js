@@ -9,11 +9,19 @@ function App() {
   const [functionName, setFunctionName] = useState('');
   const [args, setArgs] = useState([]);
   const [result, setResult] = useState('');
+  const [activeTab, setActiveTab] = useState(0);
+  const [selectedFile, setSelectedFile] = useState(null);
+  const [fileTx, setFileTx] = useState('');
+  const [resultTx, setResultTx] = useState('');
 
   const jsonData = {
     fileHash: fileHash,
     functionName: functionName,
     args: args
+  };
+
+  const handleTabChange = (index) => {
+    setActiveTab(index);
   };
 
   const handleFileHash = (event) => {
@@ -36,6 +44,30 @@ function App() {
   const handleScrollUp = () => {
     const targetElement = document.getElementById('header');
     targetElement.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const handleFileChange = (event) => {
+    const file = event.target.files[0];
+    setSelectedFile(file);
+  };
+
+  const handleUploadButton = () => {
+
+    const formData = new FormData(); 
+    formData.append('file', selectedFile);
+
+    fetch('http://localhost:8000/upload', {
+      method: 'POST',
+      body: formData
+    })
+      .then(response => response.text())
+      .then(data => {
+        console.log('POST 요청 결과:', data);
+        setFileTx(data);
+      })
+      .catch(error => {
+        console.error('POST 요청 중 오류 발생:', error);
+      });
   };
 
   const handleButton = () => {
@@ -96,50 +128,88 @@ function App() {
           <img src={scroll} alt='scroll' className='scroll-img' />
         </div>
 
-        <p className='font-1'>
-          callAolda에 필요한 데이터를 입력해주세요!
-        </p>
-
-        <div>
-          <div className='container-input'>
-            <span className='font-inputtitle'>
-              fileHash :
-            </span>
-            <input
-              className='input'
-              type="text"
-              value={fileHash}
-              onChange={handleFileHash}
-            />
-          </div>
-          <div className='container-input'>
-            <span className='font-inputtitle'>
-              functionName :
-            </span>
-            <input
-              className='input'
-              type="text"
-              value={functionName}
-              onChange={handleFunctionName}
-            />
-          </div>
-          <div className='container-input'>
-            <span className='font-inputtitle'>
-              args :
-            </span>
-            <input
-              className='input'
-              type="text"
-              value={args}
-              onChange={handleArgs}
-            />
-          </div>
+        <div className="tabs">
+          <p
+            style={{ color: activeTab === 0 ? '#61dafb' : 'black' }}
+            className='tab'
+            onClick={() => handleTabChange(0)}
+          >
+            파일 등록
+          </p>
+          <p
+            style={{ color: activeTab === 1 ? '#61dafb' : 'black' }}
+            className='tab'
+            onClick={() => handleTabChange(1)}
+          >
+            callAolda
+          </p>
         </div>
-
-        <button className='button-emit' onClick={handleButton}>callAolda</button>
-
         <div>
-          <p className='font-inputtitle'>Aolda를 통해 나온 결과 : {result}</p>
+          {activeTab === 0 && <div className="tab-content">
+            <p className='font-1'>
+              FlexiContract에 업로드 할 파일을 추가해주세요!
+            </p>
+
+            <input type="file" onChange={handleFileChange} />
+            {selectedFile && (
+              <p>선택한 파일: {selectedFile.name}</p>
+            )}
+
+            <button className='button-emit' onClick={handleUploadButton}>upload File</button>
+
+            <div>
+              <p className='font-inputtitle'>파일 등록 Transaction : {fileTx}</p>
+            </div>
+
+          </div>}
+
+          {activeTab === 1 && <div className="tab-content">
+            <p className='font-1'>
+              필요한 데이터를 입력해주세요!
+            </p>
+
+            <div>
+              <div className='container-input'>
+                <span className='font-inputtitle'>
+                  fileHash :
+                </span>
+                <input
+                  className='input'
+                  type="text"
+                  value={fileHash}
+                  onChange={handleFileHash}
+                />
+              </div>
+              <div className='container-input'>
+                <span className='font-inputtitle'>
+                  functionName :
+                </span>
+                <input
+                  className='input'
+                  type="text"
+                  value={functionName}
+                  onChange={handleFunctionName}
+                />
+              </div>
+              <div className='container-input'>
+                <span className='font-inputtitle'>
+                  args :
+                </span>
+                <input
+                  className='input'
+                  type="text"
+                  value={args}
+                  onChange={handleArgs}
+                />
+              </div>
+            </div>
+
+            <button className='button-emit' onClick={handleButton}>callAolda</button>
+
+            <div>
+              <p className='font-inputtitle'>Aolda를 통해 나온 결과 : {result}</p>
+            </div>
+          </div>}
         </div>
       </div>
     </div>
