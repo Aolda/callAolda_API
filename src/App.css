@@ -33,6 +33,7 @@
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
+  position: relative;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -44,7 +45,7 @@
   color: #61dafb;
 }
 
-.scroll-button {
+.scrolldown-button {
   width: 15vh;
   height: 15vh;
   margin-top: 5vh;
@@ -52,24 +53,37 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  filter: brightness(0) invert(1);
+  position: absolute;
+  bottom: 0;
 }
 
 .scroll-img {
   width: 9vh;
   height: 9vh;
-  filter: brightness(0) invert(1);
 }
 
 .App-container {
   background-color: #ffffff;
   min-height: 100vh;
   display: flex;
+  position: relative;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 10px;
 }
 
+.scrollup-button {
+  width: 15vh;
+  height: 15vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: rotate(180deg);
+  position: absolute;
+  top: 0;
+}
 
 .font-1 {
   font-size: calc(15px + 2vmin);
@@ -77,6 +91,13 @@
 }
 
 .font-inputtitle {
+  font-size: calc(10px + 2vmin);
+}
+
+.input {
+  margin-left: 3vh;
+  height: 5vh;
+  width: 20vh;
   font-size: calc(10px + 2vmin);
 }
 

@@ -28,12 +28,18 @@ function App() {
     setArgs(event.target.value);
   };
 
-  const handleScroll = () => {
+  const handleScrollDown = () => {
     const targetElement = document.getElementById('body');
     targetElement.scrollIntoView({ behavior: 'smooth' });
   };
 
+  const handleScrollUp = () => {
+    const targetElement = document.getElementById('header');
+    targetElement.scrollIntoView({ behavior: 'smooth' });
+  };
+
   const handleButton = () => {
+    console.log(jsonData);
     fetch('http://localhost:8000/emit', {
       method: 'POST',
       headers: {
@@ -51,10 +57,9 @@ function App() {
       });
   };
 
-
   return (
     <div className="App">
-      <header className="App-header">
+      <header className="App-header" id='header'>
         <p className='font-title'>
           {"Aolda-FlexiContract"}
         </p>
@@ -81,12 +86,15 @@ function App() {
         >
           Velog
         </a>
-        <div onClick={handleScroll} className='scroll-button'>
+        <div onClick={handleScrollDown} className='scrolldown-button'>
           <img src={scroll} alt='scroll' className='scroll-img' />
         </div>
       </header>
 
       <div className='App-container' id='body'>
+        <div onClick={handleScrollUp} className='scrollup-button'>
+          <img src={scroll} alt='scroll' className='scroll-img' />
+        </div>
 
         <p className='font-1'>
           callAolda에 필요한 데이터를 입력해주세요!
@@ -98,6 +106,7 @@ function App() {
               fileHash :
             </span>
             <input
+              className='input'
               type="text"
               value={fileHash}
               onChange={handleFileHash}
@@ -108,6 +117,7 @@ function App() {
               functionName :
             </span>
             <input
+              className='input'
               type="text"
               value={functionName}
               onChange={handleFunctionName}
@@ -118,6 +128,7 @@ function App() {
               args :
             </span>
             <input
+              className='input'
               type="text"
               value={args}
               onChange={handleArgs}
