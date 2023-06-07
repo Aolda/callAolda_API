@@ -111,6 +111,11 @@
   font-size: calc(20px + 2vmin);
 }
 
+font-inSection {
+  font-size: calc(10px + 2vmin);
+  font-weight: bold;
+}
+
 .input {
   margin-left: 3vh;
   height: 5vh;
