@@ -1,7 +1,8 @@
 .App {
   text-align: center;
-  height: 100vh;
+  min-height: 100vh;
   width: 100vw;
+  overflow-x: hidden;
 }
 
 .App-logo {
@@ -51,7 +52,6 @@
 .scrolldown-button {
   width: 100vw;
   height: 5vh;
-  bottom: 15vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -90,21 +90,36 @@
   align-items: center;
   justify-content: center;
   transform: rotate(180deg);
+  filter: brightness(0) invert(1);
+}
+
+.upbody {
+  background-color: #282c34;
   position: absolute;
-  top: 0;
+  top: 0vh;
+
+}
+
+.downbody {
+  position: absolute;
+  top: 15vh;
 }
 
 .tabs {
   display: flex;
   justify-content: center;
-  gap : 20vw;
-  position: absolute;
-  top: 5vh;
+  align-items: center;
   width: 100vw;
-  height: 15vh;
+  height: 10vh;
+
 }
 
 .tab {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 10vh;
+  width: 50vw;
   font-size: calc(5vmin);
 }
 
@@ -148,7 +163,7 @@
 }
 
 .transaction-section {
-  width: 100vw;
+  width: 90vw;
   background-color: #f8f8f8;
   padding: 20px;
   opacity: 0;
@@ -186,11 +201,13 @@
 
 .tooltip-container {
   position: relative;
+  width: 90vw;
 }
 
 .tooltip-trigger {
   position: relative;
   display: inline-block;
+  width: 90vw;
 }
 
 .tooltip {
@@ -208,12 +225,16 @@
   visibility: hidden;
   transition: opacity 0.3s, visibility 0.3s;
   white-space: pre-line;
-  font-size: 20px;
+  font-size: calc(4vmin); 
 }
 
 .tooltip-container:hover .tooltip {
   opacity: 1;
   visibility: visible;
+}
+
+.tooltip_p {
+  overflow-wrap: break-word;
 }
 
 .inputs {
@@ -240,6 +261,7 @@
   font-size: calc(4vmin);
   background-color: #61dafb;
   border-color: transparent;
+  border-radius: 4px;
 }
 
 @keyframes App-logo-spin {

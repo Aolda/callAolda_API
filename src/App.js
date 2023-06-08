@@ -32,7 +32,7 @@ function Tooltip({ children, tooltip }) {
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >
-        {children}
+        <p className='tooltip_p'>{children}</p>
       </div>
       {showTooltip && <div className="tooltip">{renderTooltipContent()}</div>}
     </div>
@@ -172,26 +172,28 @@ function App() {
       </header>
 
       <div className="App-container" id="body">
+        <div className='upbody'>
         <div onClick={handleScrollUp} className="scrollup-button">
           <img src={scroll} alt="scroll" className="scroll-img" />
         </div>
         <div className="tabs">
           <p
-            style={{ color: activeTab === 0 ? '#61dafb' : 'black' }}
+            style={{ color: activeTab === 0 ? '#61dafb' : 'white' }}
             className="tab"
             onClick={() => handleTabChange(0)}
           >
             Add File
           </p>
           <p
-            style={{ color: activeTab === 1 ? '#61dafb' : 'black' }}
+            style={{ color: activeTab === 1 ? '#61dafb' : 'white' }}
             className="tab"
             onClick={() => handleTabChange(1)}
           >
             Call Aolda
           </p>
         </div>
-        <div>
+        </div>
+        <div className='downbody'>
           {activeTab === 0 && (
             <div className="tab-content">
               <p className="font-1">
@@ -203,7 +205,7 @@ function App() {
                 {selectedFile && <p>선택한 파일: {selectedFile.name}</p>}
               </div>
               <button className="button-emit" onClick={handleUploadButton}>
-                upload File
+                Add File
               </button>
 
               <div className={`transaction-section ${fileTx ? 'visible' : ''}`}>
@@ -265,7 +267,7 @@ function App() {
               </div>
 
               <button className="button-emit" onClick={handleButton}>
-                callAolda
+                Call Aolda
               </button>
 
               <div className={`transaction-section ${resultTx ? 'visible' : ''}`}>
