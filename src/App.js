@@ -132,34 +132,49 @@ function App() {
       <header className="App-header" id="header">
         <p className="font-title">{"Aolda-FlexiContract"}</p>
         <p className="font-subtitle">
-          {"Solidity 외의 언어로 작성된 Smart Contract를 EVM 기반 체인에 적용하기 위한 L2 솔루션"}
+          {"Solidity 외의 언어로 작성된 Smart Contract를"}
+          <br></br>
+          {"EVM 기반 체인에 적용하기 위한 L2 솔루션"}
         </p>
         <img src={logo} className="App-logo" alt="logo" />
         <p className="font-link">
           아올다팀의 FlexiContract을 소개하는 링크입니다 :)
         </p>
-        <a
-          className="App-link"
-          href="https://github.com/Aolda"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          GitHub
-        </a>
-        <a
-          className="App-link"
-          href="https://velog.io/@aolda_aww"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Velog
-        </a>
+        <div className='links'>
+          <a
+            className="App-link"
+            href="https://github.com/Aolda"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            GitHub
+          </a>
+          <a
+            className="App-link"
+            href="https://donggni0712.gitbook.io/aolda/aolda/aolda-multi-vm"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            GitBook
+          </a>
+          <a
+            className="App-link"
+            href="https://velog.io/@aolda_aww"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Velog
+          </a>
+        </div>
         <div onClick={handleScrollDown} className="scrolldown-button">
           <img src={scroll} alt="scroll" className="scroll-img" />
         </div>
       </header>
 
       <div className="App-container" id="body">
+        <div onClick={handleScrollUp} className="scrollup-button">
+          <img src={scroll} alt="scroll" className="scroll-img" />
+        </div>
         <div className="tabs">
           <p
             style={{ color: activeTab === 0 ? '#61dafb' : 'black' }}
@@ -218,7 +233,7 @@ function App() {
             <div className="tab-content">
               <p className="font-1">필요한 데이터를 입력해주세요!</p>
 
-              <div>
+              <div className='inputs'>
                 <div className="container-input">
                   <span className="font-inputtitle">fileHash :</span>
                   <input

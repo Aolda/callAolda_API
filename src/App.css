@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  height: 100vh;
+  width: 100vw;
 }
 
 .App-logo {
@@ -14,24 +16,24 @@
 }
 
 .font-link {
-  font-size: calc(10px + 2vmin);
+  font-size: calc(4vmin);
 }
 
 .font-title {
-  font-size: calc(70px + 2vmin);
+  font-size: calc(8vmin);
   font-weight: bold;
-  margin-top: 3vh;
   margin-bottom: 0;
 }
 
 .font-subtitle {
-  font-size: calc(15px + 2vmin);
+  font-size: calc(4vmin);
   font-weight: bold;
 }
 
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
+  height: 100vh;
+  width: 100vw;
   display: flex;
   position: relative;
   flex-direction: column;
@@ -41,13 +43,13 @@
 }
 
 .App-link {
-  font-size: calc(10px + 2vmin);
+  font-size: calc(4vmin);
   color: #61dafb;
 }
 
 .scrolldown-button {
-  width: 45vh;
-  height: 10vh;
+  width: 100vw;
+  height: 5vh;
   bottom: 0;
   display: flex;
   align-items: center;
@@ -57,13 +59,14 @@
 }
 
 .scroll-img {
-  width: 9vh;
-  height: 9vh;
+  width: 10vmin;
+  height: 10vmin;
 }
 
 .App-container {
   background-color: #ffffff;
   min-height: 100vh;
+  width: 100vw;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -71,9 +74,15 @@
   justify-content: center;
 }
 
+.links {
+  gap: 5vw;
+  display: flex;
+  flex-direction: row;
+}
+
 .scrollup-button {
-  width: 100vh;
-  height: 15vh;
+  width: 100vw;
+  height: 5vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -84,14 +93,16 @@
 
 .tabs {
   display: flex;
+  justify-content: center;
+  gap : 20vw;
   position: absolute;
-  top: 2vh;
+  top: 5vh;
+  width: 100vw;
+  height: 15vh;
 }
 
 .tab {
-  height: 5vh;
-  width: 50vh;
-  font-size: calc(10px + 2vmin);
+  font-size: calc(5vmin);
 }
 
 .tab-content {
@@ -99,28 +110,28 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap : 5vh;
+  gap : 10vmin;
 }
 
 .font-1 {
-  font-size: calc(10px + 2vmin);
+  font-size: calc(5vmin);
   font-weight: bold;
 }
 
 .font-inputtitle {
-  font-size: calc(20px + 2vmin);
+  font-size: calc(5vmin);
 }
 
-font-inSection {
-  font-size: calc(10px + 2vmin);
+.font-inSection {
+  font-size: calc(2vmin);
   font-weight: bold;
 }
 
 .input {
-  margin-left: 3vh;
-  height: 5vh;
-  width: 20vh;
-  font-size: calc(10px + 2vmin);
+  margin-left: 3vmin;
+  height: 4vh;
+  width: 40vw;
+  font-size: calc(4vmin);
 }
 
 .transaction-section {
@@ -189,6 +200,9 @@ font-inSection {
   visibility: visible;
 }
 
+.inputs {
+  gap : 10vw;
+}
 
 .container-input {
   display: flex;
@@ -199,8 +213,8 @@ font-inSection {
 
 .button-emit {
   height: 5vh;
-  width: 50vh;
-  font-size: calc(10px + 2vmin);
+  width: 50vw;
+  font-size: calc(5vmin);
   background-color: #61dafb;
   border-color: transparent;
 }
