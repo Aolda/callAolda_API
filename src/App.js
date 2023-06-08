@@ -90,7 +90,7 @@ function App() {
     const formData = new FormData();
     formData.append('file', selectedFile);
 
-    fetch('http://' + process.env.REACT_APP_FLEXICONTRACT_ADDRESS + '/upload', {
+    fetch(process.env.REACT_APP_FLEXICONTRACT_ADDRESS + 'upload', {
       method: 'POST',
       body: formData
     })
@@ -107,7 +107,7 @@ function App() {
   const handleButton = () => {
     console.log(jsonData);
     jsonData.args = args.split(' ');
-    fetch('http://' + process.env.REACT_APP_FLEXICONTRACT_ADDRESS + '/emit', {
+    fetch(process.env.REACT_APP_FLEXICONTRACT_ADDRESS + 'emit', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
