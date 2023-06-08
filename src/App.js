@@ -181,14 +181,14 @@ function App() {
             className="tab"
             onClick={() => handleTabChange(0)}
           >
-            파일 등록
+            Add File
           </p>
           <p
             style={{ color: activeTab === 1 ? '#61dafb' : 'black' }}
             className="tab"
             onClick={() => handleTabChange(1)}
           >
-            callAolda
+            Call Aolda
           </p>
         </div>
         <div>
@@ -198,15 +198,16 @@ function App() {
                 FlexiContract에 업로드 할 파일을 추가해주세요!
               </p>
 
-              <input type="file" onChange={handleFileChange} />
-              {selectedFile && <p>선택한 파일: {selectedFile.name}</p>}
-
+              <div className='pickfile'>
+                <input type="file" onChange={handleFileChange} />
+                {selectedFile && <p>선택한 파일: {selectedFile.name}</p>}
+              </div>
               <button className="button-emit" onClick={handleUploadButton}>
                 upload File
               </button>
 
               <div className={`transaction-section ${fileTx ? 'visible' : ''}`}>
-                <p className="font-inputtitle">Transaction</p>
+                <p>Transaction</p>
                 {parsedFileTx && (
                   <div>
                     <Tooltip tooltip={"Type은 트랜잭션의 종류를 나타내는 값으로 0~4 중 하나입니다.\n 0: 파일 생성\n 1: EVM에서 AOLDA를 호출한 기록\n 2: USER가 API를 사용해 직접 Aolda Node를 호출한 기록\n 3: type1과 type2에 대한 결과값\n 4: 블록 채굴에 대한 트랜잭션"}><strong>Type: </strong>{parsedFileTx.header.type}</Tooltip>
@@ -270,8 +271,8 @@ function App() {
               <div className={`transaction-section ${resultTx ? 'visible' : ''}`}>
                 {parsedResultTx && (
                   <div>
-                    <p className="font-inSection">Result : {parsedResultTx.body.result}</p>
-                    <strong className="font-inSection">Transaction</strong>
+                    <p>Result : {parsedResultTx.body.result}</p>
+                    <p>Transaction</p>
                     <Tooltip tooltip={"Type은 트랜잭션의 종류를 나타내는 값으로 0~4 중 하나입니다.\n 0: 파일 생성\n 1: EVM에서 AOLDA를 호출한 기록\n 2: USER가 API를 사용해 직접 Aolda Node를 호출한 기록\n 3: type1과 type2에 대한 결과값\n 4: 블록 채굴에 대한 트랜잭션"}><strong>Type: </strong>{parsedResultTx.header.type}</Tooltip>
                     <Tooltip tooltip={"Hash는 트랜잭션 body에 대한 해쉬값입니다."}><strong>Hash:</strong> {parsedResultTx.header.hash}</Tooltip>
                     <Tooltip tooltip={"Block Number는 local blockchain의 block 개수입니다."}><strong>Block Number: </strong>{parsedResultTx.header.blockNumber}</Tooltip>

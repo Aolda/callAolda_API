@@ -17,6 +17,7 @@
 
 .font-link {
   font-size: calc(4vmin);
+  margin-bottom: 1vh;
 }
 
 .font-title {
@@ -50,12 +51,12 @@
 .scrolldown-button {
   width: 100vw;
   height: 5vh;
-  bottom: 0;
+  bottom: 15vh;
   display: flex;
   align-items: center;
   justify-content: center;
   filter: brightness(0) invert(1);
-  position: absolute;
+  margin-top: 3vh;
 }
 
 .scroll-img {
@@ -75,6 +76,8 @@
 }
 
 .links {
+  height : 5vh;
+  weight : 50vw;
   gap: 5vw;
   display: flex;
   flex-direction: row;
@@ -110,12 +113,22 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap : 10vmin;
+  gap : 1vmin;
 }
 
 .font-1 {
   font-size: calc(5vmin);
   font-weight: bold;
+}
+
+.pickfile {
+  background-color: #f8f8f8;
+  padding: 20px;
+  transition: opacity 0.3s;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  display: inline-block;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
 .font-inputtitle {
@@ -135,6 +148,7 @@
 }
 
 .transaction-section {
+  width: 100vw;
   background-color: #f8f8f8;
   padding: 20px;
   opacity: 0;
@@ -151,6 +165,8 @@
   padding: 0px 0;
   font-size: 14px;
   line-height: 1.4;
+  font-size: calc(5vmin);
+  font-weight: bold;
 }
 
 .transaction-section p:first-child {
@@ -201,7 +217,13 @@
 }
 
 .inputs {
-  gap : 10vw;
+  background-color: #f8f8f8;
+  padding: 20px;
+  transition: opacity 0.3s;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  display: inline-block;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
 .container-input {
@@ -212,9 +234,10 @@
 }
 
 .button-emit {
-  height: 5vh;
+  height: 10vh;
   width: 50vw;
-  font-size: calc(5vmin);
+  margin-top: 5vh;
+  font-size: calc(4vmin);
   background-color: #61dafb;
   border-color: transparent;
 }
