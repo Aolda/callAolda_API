@@ -155,10 +155,24 @@
   font-weight: bold;
 }
 
-.input {
+.input-fileHash {
   margin-left: 3vmin;
   height: 4vh;
   width: 40vw;
+  font-size: calc(4vmin);
+}
+
+.input-functionName {
+  margin-left: 3vmin;
+  height: 4vh;
+  width: 30vw;
+  font-size: calc(4vmin);
+}
+
+.input-args {
+  margin-left: 3vmin;
+  height: 4vh;
+  width: 30vw;
   font-size: calc(4vmin);
 }
 
@@ -245,6 +259,11 @@
   border-radius: 4px;
   display: inline-block;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3vmin;
 }
 
 .container-input {
@@ -256,7 +275,7 @@
 
 .button-emit {
   height: 10vh;
-  width: 50vw;
+  width: 40vw;
   margin-top: 5vh;
   font-size: calc(4vmin);
   background-color: #61dafb;

@@ -76,11 +76,6 @@ function App() {
     targetElement.scrollIntoView({ behavior: 'smooth' });
   };
 
-  const handleScrollUp = () => {
-    const targetElement = document.getElementById('header');
-    targetElement.scrollIntoView({ behavior: 'smooth' });
-  };
-
   const handleFileChange = (event) => {
     const file = event.target.files[0];
     setSelectedFile(file);
@@ -173,9 +168,6 @@ function App() {
 
       <div className="App-container" id="body">
         <div className='upbody'>
-        <div onClick={handleScrollUp} className="scrollup-button">
-          <img src={scroll} alt="scroll" className="scroll-img" />
-        </div>
         <div className="tabs">
           <p
             style={{ color: activeTab === 0 ? '#61dafb' : 'white' }}
@@ -238,27 +230,27 @@ function App() {
 
               <div className='inputs'>
                 <div className="container-input">
-                  <span className="font-inputtitle">fileHash :</span>
+                  <span className="font-inputtitle">fileHash</span>
                   <input
-                    className="input"
+                    className="input-fileHash"
                     type="text"
                     value={fileHash}
                     onChange={handleFileHash}
                   />
                 </div>
                 <div className="container-input">
-                  <span className="font-inputtitle">functionName :</span>
+                  <span className="font-inputtitle">functionName</span>
                   <input
-                    className="input"
+                    className="input-functionName"
                     type="text"
                     value={functionName}
                     onChange={handleFunctionName}
                   />
                 </div>
                 <div className="container-input">
-                  <span className="font-inputtitle">args :</span>
+                  <span className="font-inputtitle">args</span>
                   <input
-                    className="input"
+                    className="input-args"
                     type="text"
                     value={args}
                     onChange={handleArgs}
